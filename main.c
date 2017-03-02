@@ -8,9 +8,10 @@
 #include "algoritmo2.c"
 #include "algoritmo3.c"
 #include "Bresenham.c"
+#include "lineNode.c"
 
 int main(int argc, char **argv){
-    int res, n_lines, times, times_i, lines_i;
+    int res, n_lines, times, times_i, lines_i, i;
     clock_t start, end;
     double cpu_time_alg1, cpu_time_alg2, cpu_time_alg3, cpu_time_alg4;
 
@@ -33,9 +34,15 @@ int main(int argc, char **argv){
     srand(time(0));
 
     // Generar lista de lineas aleatorios
-    
+    for (i=0; i < n_lines; i++) {
+        Point Ini = randPoint(res);
+        Point Fin = randPoint(res);
+        line_insert_node_last(Ini,Fin);
+    }
 
+    line_display();
 
+    return 0;
 
 
     // for linea in lineas Do Algorithm 1
@@ -104,5 +111,9 @@ int main(int argc, char **argv){
     // timer end
     end = clock();
     cpu_time_alg4 = ((double) (end - start)) / CLOCKS_PER_SEC;
+
+
+
+    //
 
 }

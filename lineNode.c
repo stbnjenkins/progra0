@@ -7,8 +7,8 @@ typedef struct LineNode{
 } LineNode, *LineNodePtr;
 
 
-LineNodePtr lnewnode, ptr;
-LineNodePtr first = NULL, last = NULL;
+LineNodePtr lnewnode, lptr;
+LineNodePtr lfirst = NULL, llast = NULL;
 
 /*
  * Creating Node
@@ -34,17 +34,17 @@ LineNodePtr line_create_node(Point myPoint_ini,Point myPoint_fin){
 
 void line_insert_node_last(Point myPoint_ini,Point myPoint_fin){
     lnewnode = line_create_node(myPoint_ini, myPoint_fin);
-    if (first == last && last == NULL)
+    if (lfirst == llast && llast == NULL)
     {
-        first = last = lnewnode;
-        first->next = NULL;
-        last->next = NULL;
+        lfirst = llast = lnewnode;
+        lfirst->next = NULL;
+        llast->next = NULL;
     }
     else
     {
-        last->next = lnewnode;
-        last = lnewnode;
-        last->next = NULL;
+        llast->next = lnewnode;
+        llast = lnewnode;
+        llast->next = NULL;
     }
 }    
 
@@ -54,16 +54,16 @@ void line_insert_node_last(Point myPoint_ini,Point myPoint_fin){
 
 void line_display()
 {
-    if (first == NULL)
+    if (lfirst == NULL)
     {
         printf("\nEMPTY LIST:");
         printf(":No nodes in the list to display\n");
     }
     else
     {
-        for (ptr = first;ptr != NULL;ptr = ptr->next)
+        for (lptr = lfirst;lptr != NULL;lptr = lptr->next)
         {    
-            printf("Point1.x -> %d\nPoint1.y -> %d\nPoint2.x -> %d\nPoint2.y -> %d\n", (ptr->point_ini).x, (ptr->point_ini).y, (ptr->point_fin).x, (ptr->point_fin).y);
+            printf("Point1.x -> %d\nPoint1.y -> %d\nPoint2.x -> %d\nPoint2.y -> %d\n", (lptr->point_ini).x, (lptr->point_ini).y, (lptr->point_fin).x, (lptr->point_fin).y);
         }
     }
 }
