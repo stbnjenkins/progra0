@@ -43,19 +43,24 @@ void line (Point p0, Point p1){
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++){
             y = (long double) m*i + b;
+            round(y);
             //printf("(%d, %d)", i, (int)round(y));
         }
+        //printf("i: %d\n", i);
     }else{
         if(m == INFINITY){
             for(i = p0.y; i <= p1.y; i++){
                 //printf("(%d, %d)", p0.x, i);
             }
+            //printf("i: %d\n", i);
         }else{
             if(p0.y > p1.y) swapPoints(&p0, &p1);
             for(i = p0.y; i <= p1.y; i++){
                 y = (long double) (i-b)/m;
+                round(y);
                 //printf("(%d, %d)", (int)round(y), i);
             }
+            //printf("i: %d\n", i);
         }
     }
 }
@@ -70,12 +75,12 @@ void line (Point p0, Point p1){
 //     // p2.y = 17;
 
 //     Point p1;
-//     p1.x = 1;
-//     p1.y = 9;
+//     p1.x = 100;
+//     p1.y = 100;
 
 //     Point p2;
-//     p2.x = 4;
-//     p2.y = 2;
+//     p2.x = 10000;
+//     p2.y = 88;
 
 //     line(p1,p2);
 //     // line(p2,p1);

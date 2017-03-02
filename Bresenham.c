@@ -35,7 +35,7 @@ void bresenham(Point p0, Point p1) {
     xdif = p1.x-p0.x; ydif = p1.y-p0.y;
 
     //Common Delta
-    Delta_N = 0-xdif-xdif;
+    Delta_N = -xdif-xdif;
     Delta_E = ydif+ydif;
     Delta_S = xdif+xdif;
     Delta_NE = ydif-xdif+ydif-xdif;
@@ -44,6 +44,7 @@ void bresenham(Point p0, Point p1) {
     //print first point
     plot(xp, yp);
    // printf("(%d, %d)", xp, yp);
+
 
     //Calculing cases
     if(ydif >= 0) {
@@ -60,6 +61,7 @@ void bresenham(Point p0, Point p1) {
                 } else{
                     plot(xp, yp+1);
                //     printf("(%d, %d)", xp, yp+1);
+
                     yp++; d = d + Delta_N;
                 }
             }
@@ -81,7 +83,7 @@ void bresenham(Point p0, Point p1) {
             }
         }
     } else {
-        if((0-ydif) >= xdif) {
+        if(-ydif >= xdif) {
             //cuadrante 7
             d = ydif+xdif+xdif;
 

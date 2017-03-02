@@ -38,6 +38,7 @@ void alg2_line (Point p0, Point p1){
 
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++ ){
+            round(y);
             //printf("(%d, %d)", i, (int)round(y));
             y+=m;
         }
@@ -52,6 +53,7 @@ void alg2_line (Point p0, Point p1){
             m = (long double)dx/dy;
             y = p0.x;
             for(i = p0.y; i <= p1.y; i++ ){
+                round(y);
                 //printf("(%d, %d)", (int)round(y), i);
                 y+=m;
             }
