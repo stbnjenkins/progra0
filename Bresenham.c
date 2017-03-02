@@ -33,72 +33,72 @@ void bresenham(Point p0, Point p1) {
     xdif = p1.x-p0.x; ydif = p1.y-p0.y;
 
     //Common Delta
-    Delta_N = -2*(xdif);
-    Delta_E = 2*(ydif);
-    Delta_S = 2*(xdif);
-    Delta_NE = 2*((ydif)-(xdif));
-    Delta_SE = 2*((ydif)+(xdif));
+    Delta_N = 0-xdif-xdif;
+    Delta_E = ydif+ydif;
+    Delta_S = xdif+xdif;
+    Delta_NE = ydif-xdif+ydif-xdif;
+    Delta_SE = ydif+xdif+ydif+xdif;
 
     //print first point
-    //printf("(%d, %d)", xp, yp);
+    printf("(%d, %d)", xp, yp);
 
     //Calculing cases
     if(ydif >= 0) {
         if(ydif >= xdif) {
             //cuadrante 2
-            d = (ydif)-2*(xdif);
+            d = ydif-xdif-xdif;
             
             //ciclo
             for(i = p0.y; i < p1.y; i++){
                 if (d<0){
-                    //printf("(%d, %d)", xp+1, yp+1);
+                    printf("(%d, %d)", xp+1, yp+1);
                     xp++; yp++; d = d + Delta_NE;
                 } else{
-                    //printf("(%d, %d)", xp, yp+1);
+                    printf("(%d, %d)", xp, yp+1);
                     yp++; d = d + Delta_N;
                 }
             }
         } else {
             //cuadrante 1
-            d = 2*(ydif)-(xdif);
+            d = ydif+ydif-xdif;
 
             //ciclo
             for(i = p0.x; i < p1.x; i++){
                 if (d<0){
-                    //printf("(%d, %d)", xp+1, yp);
+                    printf("(%d, %d)", xp+1, yp);
                     xp++; d = d + Delta_E;
                 } else{
-                    //printf("(%d, %d)", xp+1, yp+1);
+                    printf("(%d, %d)", xp+1, yp+1);
                     xp++; yp++; d = d + Delta_NE;
                 }
             }
         }
     } else {
-        if((ydif*(-1)) >= xdif) {
+        if((0-ydif) >= xdif) {
             //cuadrante 7
-            d = (ydif)+2*(xdif);
+            d = ydif+xdif+xdif;
 
             //ciclo
             for(i = p0.y; i > p1.y; i--){
                 if (d<0){
-                    //printf("(%d, %d)", xp, yp-1);
+                    printf("(%d, %d)", xp, yp-1);
                     yp--; d = d + Delta_S;
                 } else{
-                    //printf("(%d, %d)", xp+1, yp-1);
+                    printf("(%d, %d)", xp+1, yp-1);
                     xp++; yp--; d = d + Delta_SE;
                 }
             }
         } else {
             //cuadrante 8
-            d = 2*(ydif)+(xdif);
+            d = ydif+ydif+xdif;
 
             //ciclo
             for(i = p0.x; i < p1.x; i++){
                 if (d<0){
-                    //printf("(%d, %d)", xp+1, yp-1);
+                    printf("(%d, %d)", xp+1, yp-1);
                     xp++; yp--; d = d + Delta_SE;
                 } else{
-                    //printf("(%d, %d)", xp+1, yp);
+                    printf("(%d, %d)", xp+1, yp);
                     xp++; d = d + Delta_E;
                 }
             }
@@ -108,12 +108,12 @@ void bresenham(Point p0, Point p1) {
 
 // int main(){
 //     Point p1;
-//     p1.x = 1;
+//    p1.x = 1;
 //     p1.y = 9;
 
-//     Point p2;
-//     p2.x = 4;
-//     p2.y = 2;
+    //  Point p2;
+    //  p2.x = 4;
+    //  p2.y = 2;
 
-//     bresenham(p1,p2);
+ //    bresenham(p1,p2);
 // }
