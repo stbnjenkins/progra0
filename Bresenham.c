@@ -3,7 +3,6 @@
 #include <math.h>
 #include "point.h"
 #include "helpers.c"
-#include "plot.c"
 
 void bresenham(Point p0, Point p1) {
 

@@ -4,8 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "point.h"
-#include "helpers.c"
+
 #include "rgb.h"
 
 #include <GL/gl.h>
@@ -59,21 +58,5 @@ void ini_buffer(int res) {
     }
 }
 
-//Run the window
-void window_runner(int res) {
-    //starting window
-    char *myargv[1];
-    int myargc=1;
-    myargv [0]=strdup ("Plot");
-    glutInit(&myargc, myargv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(res,res);
-    glutCreateWindow("Plot");
-    glClear(GL_COLOR_BUFFER_BIT);
-    gluOrtho2D(-0.5, res +0.5, -0.5, res + 0.5);
-    plot_framebuffer(res);
-//  glutDisplayFunc(dummy);
-    glutMainLoop();
-}
-#endif /* LINE_H */
+
 
