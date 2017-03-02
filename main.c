@@ -5,6 +5,7 @@
 #include "generator.c"
 
 int main(int argc, char **argv){
+    //hola
     // Point p1;
     // p1.x = 24;
     // p1.y = 42;
