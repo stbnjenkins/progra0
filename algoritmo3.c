@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "point.h"
-#include "plot.c"
 #include "helpers.c"
 
 int max(int num1, int num2) {
