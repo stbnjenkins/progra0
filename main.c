@@ -11,10 +11,6 @@
 #include "lineNode.c"
 
 
-void printStats(){
-
-}
-
 int main(int argc, char **argv){
     int res, n_lines, times, times_i, lines_i, i;
     clock_t start, end;
@@ -52,6 +48,9 @@ int main(int argc, char **argv){
         line_insert_node_last(Ini,Fin);
     }
 
+    //initialzing buffer
+    ini_buffer(res);
+
     //line_display();
 
     //return 0;
@@ -72,9 +71,6 @@ int main(int argc, char **argv){
     cpu_time_alg1 = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("Time taken alg1 in seconds: %lf\n", cpu_time_alg1);
     
-
-
-
 
 
     // for linea in lineas  Do Algorithm 2
@@ -109,7 +105,6 @@ int main(int argc, char **argv){
 
 
 
-
     // for linea in lineas  Do Algorithm 4
     // timer start
     start = clock();
@@ -124,5 +119,6 @@ int main(int argc, char **argv){
     cpu_time_alg4 = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("Time taken alg4 in seconds: %lf\n", cpu_time_alg4);
 
-
+    //Executing Window
+    window_runner(res);
 }

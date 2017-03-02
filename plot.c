@@ -1,30 +1,31 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "point.h"
 #include "helpers.c"
 #include "rgb.h"
 
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+
 COLOR **buffer;
 
-void Plot(int x,int y){
-
-    if (Type) {
-        //Plot Mode
-
-    } else {
-        //Printing Mode
-        printf("(%d, %d)", x, y);
-    }
+//Plot put the points in the buffer
+void plot(int x,int y){
+      buffer[x][y].r = 0;
+      buffer[x][y].g = 0;
+      buffer[x][y].b = 0;
 }
 
-void plot_point() {
-  static int last_x = 0;
+//Take info from buffer and put it on display
+void plot_framebuffer(int res) {
   int i, j;
   COLOR color;
 
-  for (i = 0; i < last_x; i++) 
+  for (i = 0; i < res; i++) 
       {
-       for (j = 0; j < V_SIZE; j++) 
+       for (j = 0; j < res; j++) 
            {
             glColor3f (buffer[i][j].r,buffer[i][j].g,buffer[i][j].b);
             glBegin (GL_POINTS);
@@ -32,51 +33,45 @@ void plot_point() {
             glEnd();
            }
       }
-
-  for (i = last_x; i < H_SIZE; i++) 
-      {
-       for (j = 0; j < V_SIZE; j++) 
-         {
-          buffer[i][j].r = (double)(i % (H_SIZE / 10)) / (double)(H_SIZE / 10);
-          buffer[i][j].g = (double)(j % (V_SIZE / 10)) / (double)(V_SIZE / 10);
-          buffer[i][j].b = (double)(i) / (double)(H_SIZE);
-          glColor3f (buffer[i][j].r,buffer[i][j].g,buffer[i][j].b);
-          glBegin(GL_POINTS);
-          glVertex2i(i,j);
-          glEnd();
-          last_x = i;
-         }
-      }
-
   glFlush();
 }
 
-void ini_frame(int argc, char** argv) {
-  int i, j;
+//Initialize buffer (everything white)
+void ini_buffer(int res) {
+    int i, j;
 
-  buffer = (COLOR **)malloc(H_SIZE * sizeof(COLOR*));
-  for (i = 0; i < H_SIZE; i++) 
-      {
-       buffer[i] = (COLOR *)malloc(V_SIZE * sizeof(COLOR));
-      }
+    //reserve the memory space for the buffer
+    buffer = (COLOR **)malloc(res * sizeof(COLOR*));
+    for (i = 0; i < res; i++){
+        buffer[i] = (COLOR *)malloc(res * sizeof(COLOR));
+    }
 
-  for (i = 0; i < H_SIZE; i++) 
-      {
-       for (j = 0; j < V_SIZE; j++) 
-           {
-            buffer[i][j].r = 0;
-            buffer[i][j].g = 0;
-            buffer[i][j].b = 0;
-           }
-      }
-
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-  glutInitWindowSize(H_SIZE,V_SIZE);
-  glutCreateWindow("Plot");
-  glClear(GL_COLOR_BUFFER_BIT);
-  gluOrtho2D(-0.5, H_SIZE +0.5, -0.5, V_SIZE + 0.5);
-  glutDisplayFunc(plot_point);
-  glutMainLoop();
+    //initialize the values R G B for every pixel
+    for (i = 0; i < res; i++) {
+        for (j = 0; j < res; j++) {
+            buffer[i][j].r = 1;
+            buffer[i][j].g = 1;
+            buffer[i][j].b = 1;
+        }
+    }
 }
+
+//Run the window
+void window_runner(int res) {
+    //starting window
+    char *myargv[1];
+    int myargc=1;
+    myargv [0]=strdup ("Plot");
+    glutInit(&myargc, myargv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(res,res);
+    glutCreateWindow("Plot");
+    glClear(GL_COLOR_BUFFER_BIT);
+    gluOrtho2D(-0.5, res +0.5, -0.5, res + 0.5);
+    plot_framebuffer(res);
+//  glutDisplayFunc(dummy);
+    glutMainLoop();
+}
+
+
 

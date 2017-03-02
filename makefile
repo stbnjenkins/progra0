@@ -1,2 +1,2 @@
 make:
-	gcc mesa_example-2.c -o mesa -lGL -lGLU -lglut
+	gcc main.c -o lines -lGL -lGLU -lglut -std=c99 -fno-builtin -lm -D_GNU_SOURCE
