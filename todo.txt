@@ -1,3 +1,6 @@
 1) algoritmo 1
     - funcion orderar puntos
     - liberar memoria para puntos
+    - a las funciones de lista de puntos, pasar como parametros el first y last
+    para poder ser reutioizadados, y definir en main una var para cada lista que 
+    ocuapamos (una para cada algoritmo)

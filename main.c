@@ -5,6 +5,23 @@
 #include "generator.c"
 
 int main(int argc, char **argv){
+
+    // Algorithm 1
+    // PointNodePtr newnode, ptr;
+    // PointNodePtr alg1_first = NULL, alg1_last = NULL;
+    
+    // Algorithm 2
+    // PointNodePtr newnode;
+    // PointNodePtr alg2_first = NULL, alg2_last = NULL;
+
+    // Algorithm 3
+    // PointNodePtr newnode, ptr;
+    // PointNodePtr alg3_first = NULL, alg3_last = NULL;
+
+    // Algorithm 4
+    // PointNodePtr newnode, ptr;
+    // PointNodePtr alg4_first = NULL, alg4_last = NULL;
+
     //hola
     // Point p1;
     // p1.x = 24;
