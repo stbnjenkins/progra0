@@ -10,6 +10,11 @@
 #include "Bresenham.c"
 #include "lineNode.c"
 
+
+void printStats(){
+
+}
+
 int main(int argc, char **argv){
     int res, n_lines, times, times_i, lines_i, i;
     clock_t start, end;
@@ -22,10 +27,17 @@ int main(int argc, char **argv){
         return -1;
     }  
 
+
     // Get parameters
     res = (int) atoi(argv[1]);
     n_lines = (int) atoi(argv[2]);
     times = (int) atoi(argv[3]);
+
+    // check times and n_lines are positive integers
+    if(!(n_lines > 0 && times > 0)){
+        printf("<number_lines> and <times> must be POSITIVE integers\n");
+        return -1;
+    }
 
     // printf("res: %d, lineas: %d, veces: %d\n", res, n_lines, times);
     // return 0;
@@ -40,9 +52,9 @@ int main(int argc, char **argv){
         line_insert_node_last(Ini,Fin);
     }
 
-    line_display();
+    //line_display();
 
-    return 0;
+    //return 0;
 
 
     // for linea in lineas Do Algorithm 1
@@ -51,13 +63,14 @@ int main(int argc, char **argv){
     start = clock();
     for(times_i = 0; times_i < times; times_i++){
     //some setup stuff
-        for(lines_i = 0; lines_i < n_lines; lines_i++){
-            // drawLine(lines[lines_i].point_ini , lines[lines_i].point_fin);
+        for (lptr = lfirst;lptr != NULL;lptr = lptr->next){
+           line(lptr->point_ini, lptr->point_fin); 
         }
     }
     // timer end
     end = clock();
     cpu_time_alg1 = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken alg1 in seconds: %lf\n", cpu_time_alg1);
     
 
 
@@ -69,15 +82,14 @@ int main(int argc, char **argv){
     start = clock();
     for(times_i = 0; times_i < times; times_i++){
     //some setup stuff
-        for(lines_i = 0; lines_i < n_lines; lines_i++){
-            // drawLine(lines[lines_i].point_ini , lines[lines_i].point_fin);
+        for (lptr = lfirst;lptr != NULL;lptr = lptr->next){
+           alg2_line(lptr->point_ini, lptr->point_fin); 
         }
     }
     // timer end
     end = clock();
     cpu_time_alg2 = ((double) (end - start)) / CLOCKS_PER_SEC;
-
-
+    printf("Time taken alg2 in seconds: %lf\n", cpu_time_alg2);
 
 
 
@@ -86,15 +98,14 @@ int main(int argc, char **argv){
     start = clock();
     for(times_i = 0; times_i < times; times_i++){
     //some setup stuff
-        for(lines_i = 0; lines_i < n_lines; lines_i++){
-            // drawLine(lines[lines_i].point_ini , lines[lines_i].point_fin);
+        for (lptr = lfirst;lptr != NULL;lptr = lptr->next){
+           alg3_line(lptr->point_ini, lptr->point_fin); 
         }
     }
     // timer end
     end = clock();
     cpu_time_alg3 = ((double) (end - start)) / CLOCKS_PER_SEC;
-
-
+    printf("Time taken alg3 in seconds: %lf\n", cpu_time_alg3);
 
 
 
@@ -104,16 +115,14 @@ int main(int argc, char **argv){
     start = clock();
     for(times_i = 0; times_i < times; times_i++){
     //some setup stuff
-        for(lines_i = 0; lines_i < n_lines; lines_i++){
-            // drawLine(lines[lines_i].point_ini , lines[lines_i].point_fin);
+        for (lptr = lfirst;lptr != NULL;lptr = lptr->next){
+           bresenham(lptr->point_ini, lptr->point_fin); 
         }
     }
     // timer end
     end = clock();
     cpu_time_alg4 = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken alg4 in seconds: %lf\n", cpu_time_alg4);
 
-
-
-    //
 
 }

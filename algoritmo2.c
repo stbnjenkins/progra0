@@ -8,7 +8,7 @@ void alg2_line (Point p0, Point p1){
 
     // trivial case p0 = p1
     if(p0.x == p1.x && p0.y == p1.y){
-        printf("(%d, %d)", p0.x, p0.y);
+        //printf("(%d, %d)", p0.x, p0.y);
         return;
     }
     
@@ -32,19 +32,19 @@ void alg2_line (Point p0, Point p1){
 
     m = (long double) dy / dx;
     //if(m == -INFINITY) m = INFINITY;
-    printf("Slope is: %Lf\n\n", m);
+    // printf("Slope is: %Lf\n\n", m);
 
     y = p0.y;
 
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++ ){
-            printf("(%d, %d)", i, (int)round(y));
+            //printf("(%d, %d)", i, (int)round(y));
             y+=m;
         }
     }else{        
         if(m == INFINITY){
             for(i = p0.y; i <= p1.y; i++){
-                printf("(%d, %d)", p0.x, i);
+                //printf("(%d, %d)", p0.x, i);
             }
         }
         else{
@@ -52,13 +52,11 @@ void alg2_line (Point p0, Point p1){
             m = (long double)dx/dy;
             y = p0.x;
             for(i = p0.y; i <= p1.y; i++ ){
-                printf("(%d, %d)", (int)round(y), i);
+                //printf("(%d, %d)", (int)round(y), i);
                 y+=m;
             }
         }
-    }
-    printf("\n");
-    
+    }    
 }
 
 

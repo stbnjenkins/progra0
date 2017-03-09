@@ -36,7 +36,7 @@ void alg3_line (Point p0, Point p1){
 
     // trivial case p0 = p1
     if(p0.x == p1.x && p0.y == p1.y){
-        printf("(%d, %d)", p0.x, p0.y);
+        //printf("(%d, %d)", p0.x, p0.y);
         return;
     }
 
@@ -55,23 +55,23 @@ void alg3_line (Point p0, Point p1){
     }
     
     length = max(abs(p1.x - p0.x), abs(p1.y - p0.y));
-    printf("Length: %d\n\n", length);
+    // printf("Length: %d\n\n", length);
     step_x = (long double) (p1.x - p0.x)/length;
-    printf("stepx: %Lf\n\n", step_x);
+    // printf("stepx: %Lf\n\n", step_x);
     step_y = (long double) (p1.y - p0.y)/length;
-    printf("stepy: %Lf\n\n", step_y);
+    // printf("stepy: %Lf\n\n", step_y);
 
     x = (long double)p0.x;
-    printf("x_initial: %Lf\n\n", x);
+    // printf("x_initial: %Lf\n\n", x);
     y = (long double)p0.y;
-    printf("y_initial: %Lf\n\n", y);
+    // printf("y_initial: %Lf\n\n", y);
 
     for(i = 0; i <= length; i++){
-        printf("(%d, %d)", (int)round(x), (int)round(y));
+        //printf("(%d, %d)", (int)round(x), (int)round(y));
         x += step_x;
         y += step_y;
     }
-    printf("\n\n");
+    //printf("\n");
 }
 
 
