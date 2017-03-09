@@ -3,53 +3,50 @@
 
 #include "pointNode.c"
 #include "generator.c"
+#include "algoritmo1.c"
+#include "algoritmo2.c"
+#include "algoritmo3.c"
+#include "Bresenham.c"
 
 int main(int argc, char **argv){
+    int res, n_lines, times;
+    // get parameters
+    if (argc != 4) {
+        printf("Usage <program> <resolution> <number_lines> <times>\n");
+        return -1;
+    }  
 
-    // Algorithm 1
-    // PointNodePtr newnode, ptr;
-    // PointNodePtr alg1_first = NULL, alg1_last = NULL;
-    
-    // Algorithm 2
-    // PointNodePtr newnode;
-    // PointNodePtr alg2_first = NULL, alg2_last = NULL;
+    // Get parameters
+    res = (int) atoi(argv[1]);
+    n_lines = (int) atoi(argv[2]);
+    times = (int) atoi(argv[3]);
 
-    // Algorithm 3
-    // PointNodePtr newnode, ptr;
-    // PointNodePtr alg3_first = NULL, alg3_last = NULL;
-
-    // Algorithm 4
-    // PointNodePtr newnode, ptr;
-    // PointNodePtr alg4_first = NULL, alg4_last = NULL;
-
-    //hola
-    // Point p1;
-    // p1.x = 24;
-    // p1.y = 42;
-
-    // Point p2;
-    // p2.x = 48;
-    // p2.y = 8;
-
-    // // printf("Point.x -> %d\nPoint.y -> %d\n", p1.x, p1.y);
-    // // printf("Point.x -> %d\nPoint.y -> %d\n", p2.x, p2.y);
-
-    // PointNodePtr n = (PointNodePtr)malloc(sizeof(PointNode));
-    // n->point = p1;
-    // printf("Point.x -> %d\nPoint.y -> %d\n", (n->point).x, (n->point).y);
+    // printf("res: %d, lineas: %d, veces: %d\n", res, n_lines, times);
+    // return 0;
 
     // Set seed
     srand(time(0));
-    int res = 500;
-    int i;
-    // Point h = randPoint2(500);
-    // printf("Point.x -> %d\nPoint.y -> %d\n", h.x, (n->point).y);
 
-    for(i = 0; i < 10; i++){
-        Point h = randPoint(res);
-        insert_node_last(h);
-    }
+    // Generar lista de lineas aleatorios
 
-    display();
+    
+    
+    // for linea in lineas Do Algorithm 1
+
+
+    // for linea in lineas  Do Algorithm 2
+
+
+    // for linea in lineas Do Algorithm 3
+
+
+    // for linea in lineas  Do Algorithm 4
+    
+    
+    // for(i = 0; i < 2; i++){
+    //     Point h = randPoint(res);
+    //     insert_node_last(h);
+    // }
+    //display();
 
 }

@@ -3,13 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "point.h"
-
-// function to swap values of points
-void swapPoints(PointPtr p0, PointPtr p1){
-    Point temp = *p0;
-    *p0 = *p1;
-    *p1 = temp;
-}
+#include "helpers.c"
 
 int min(int num1, int num2) {
 
@@ -81,24 +75,24 @@ void alg3_line (Point p0, Point p1){
 }
 
 
-int main(){
-    // Point p1;
-    // p1.x = 6;
-    // p1.y = 5;
+// int main(){
+//     // Point p1;
+//     // p1.x = 6;
+//     // p1.y = 5;
 
-    // Point p2;
-    // p2.x = 8;
-    // p2.y = 17;
+//     // Point p2;
+//     // p2.x = 8;
+//     // p2.y = 17;
 
-    Point p1;
-    p1.x = 1;
-    p1.y = 9;
+//     Point p1;
+//     p1.x = 1;
+//     p1.y = 9;
 
-    Point p2;
-    p2.x = 4;
-    p2.y = 2;
+//     Point p2;
+//     p2.x = 4;
+//     p2.y = 2;
 
-    // alg3_line(p1,p2);
-    alg3_line(p2,p1);
-}
+//     // alg3_line(p1,p2);
+//     alg3_line(p2,p1);
+// }
 

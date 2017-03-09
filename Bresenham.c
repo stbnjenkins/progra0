@@ -2,13 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "point.h"
-
-// function to swap values of points
-void swapPoints(PointPtr p0, PointPtr p1){
-    Point temp = *p0;
-    *p0 = *p1;
-    *p1 = temp;
-}
+#include "helpers.c"
 
 void bresenham(Point p0, Point p1) {
 
@@ -112,14 +106,14 @@ void bresenham(Point p0, Point p1) {
     }
 }
 
-int main(){
-    Point p1;
-    p1.x = 1;
-    p1.y = 9;
+// int main(){
+//     Point p1;
+//     p1.x = 1;
+//     p1.y = 9;
 
-    Point p2;
-    p2.x = 4;
-    p2.y = 2;
+//     Point p2;
+//     p2.x = 4;
+//     p2.y = 2;
 
-    bresenham(p1,p2);
-}
+//     bresenham(p1,p2);
+// }
