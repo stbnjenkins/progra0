@@ -22,7 +22,11 @@ void line (Point p0, Point p1){
     int i, dx, dy;
 
 
-    // If p0 is "greater than" p1, swap them
+    /* If x component in both points is the same,
+    then make sure p0 is the one with lower y 
+    component. Otherwise, if p0.x is greater than
+    p1.x, swap them.
+    */
     if(p0.x == p1.x){
         if(p0.y > p1.y) swapPoints(&p0, &p1);
     }else{
