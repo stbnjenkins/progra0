@@ -11,16 +11,16 @@ void swapPoints(PointPtr p0, PointPtr p1){
 }
 
 void line (Point p0, Point p1){
-    long double m, b, y;
-    int i, dx, dy;
-    // test if ok and swap if needed
-    printf("Point.x -> %d\nPoint.y -> %d\n", p0.x, p0.y);
-    printf("Point.x -> %d\nPoint.y -> %d\n", p1.x, p1.y);
-
+    
+    // trivial case p0 = p1
     if(p0.x == p1.x && p0.y == p1.y){
         printf("(%d, %d)", p0.x, p0.y);
         return;
     }
+
+    long double m, b, y;
+    int i, dx, dy;
+
 
     // If p0 is "greater than" p1, swap them
     if(p0.x == p1.x){
