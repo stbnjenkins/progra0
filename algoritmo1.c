@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "point.h"
+#include "plot.c"
 #include "helpers.c"
 
 void line (Point p0, Point p1){
@@ -43,13 +44,14 @@ void line (Point p0, Point p1){
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++){
             y = (long double) m*i + b;
-            round(y);
+            plot(i, (int)round(y));
             //printf("(%d, %d)", i, (int)round(y));
         }
         //printf("i: %d\n", i);
     }else{
         if(m == INFINITY){
             for(i = p0.y; i <= p1.y; i++){
+                plot(p0.x, i);
                 //printf("(%d, %d)", p0.x, i);
             }
             //printf("i: %d\n", i);
@@ -57,7 +59,7 @@ void line (Point p0, Point p1){
             if(p0.y > p1.y) swapPoints(&p0, &p1);
             for(i = p0.y; i <= p1.y; i++){
                 y = (long double) (i-b)/m;
-                round(y);
+                plot((int)round(y), i);
                 //printf("(%d, %d)", (int)round(y), i);
             }
             //printf("i: %d\n", i);

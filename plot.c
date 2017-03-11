@@ -1,3 +1,6 @@
+#ifndef PLOT
+#define PLOT
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -72,6 +75,5 @@ void window_runner(int res) {
 //  glutDisplayFunc(dummy);
     glutMainLoop();
 }
-
-
+#endif /* LINE_H */
 

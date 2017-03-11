@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "point.h"
+#include "plot.c"
 #include "helpers.c"
 
 void alg2_line (Point p0, Point p1){
@@ -38,13 +39,14 @@ void alg2_line (Point p0, Point p1){
 
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++ ){
-            round(y);
+            plot(i, (int)round(y));
             //printf("(%d, %d)", i, (int)round(y));
             y+=m;
         }
     }else{        
         if(m == INFINITY){
             for(i = p0.y; i <= p1.y; i++){
+                plot( p0.x, i);
                 //printf("(%d, %d)", p0.x, i);
             }
         }
@@ -53,7 +55,7 @@ void alg2_line (Point p0, Point p1){
             m = (long double)dx/dy;
             y = p0.x;
             for(i = p0.y; i <= p1.y; i++ ){
-                round(y);
+                plot( (int)round(y), i);
                 //printf("(%d, %d)", (int)round(y), i);
                 y+=m;
             }

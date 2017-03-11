@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "point.h"
+#include "plot.c"
 #include "helpers.c"
 
 int max(int num1, int num2) {
@@ -45,8 +46,7 @@ void alg3_line (Point p0, Point p1){
     // printf("y_initial: %Lf\n\n", y);
 
     for(j = 0; j <= length; j++){
-        //round(x);
-        //round(y);
+        plot((int)round(x), (int)round(y));
         //printf("(%d, %d)", (int)round(x), (int)round(y));
         x += step_x;
         y += step_y;
