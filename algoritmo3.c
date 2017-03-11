@@ -33,11 +33,11 @@ void alg3_line (Point p0, Point p1){
     }
     
     length = max(abs(p1.x - p0.x), abs(p1.y - p0.y));
-    // printf("Length: %d\n\n", length);
+    //printf("Length: %d\n\n", length);
     step_x = (long double) (p1.x - p0.x)/length;
-    // printf("stepx: %Lf\n\n", step_x);
+    //printf("stepx: %Lf\n\n", step_x);
     step_y = (long double) (p1.y - p0.y)/length;
-    // printf("stepy: %Lf\n\n", step_y);
+    //printf("stepy: %Lf\n\n", step_y);
 
     x = (long double)p0.x;
     // printf("x_initial: %Lf\n\n", x);
@@ -45,8 +45,8 @@ void alg3_line (Point p0, Point p1){
     // printf("y_initial: %Lf\n\n", y);
 
     for(j = 0; j <= length; j++){
-        round(x);
-        round(y);
+        //round(x);
+        //round(y);
         //printf("(%d, %d)", (int)round(x), (int)round(y));
         x += step_x;
         y += step_y;
@@ -65,14 +65,14 @@ void alg3_line (Point p0, Point p1){
 //     // p2.y = 17;
 
 //     Point p1;
-//     p1.x = 1;
-//     p1.y = 9;
+//     p1.x = 100;
+//     p1.y = 100;
 
 //     Point p2;
-//     p2.x = 4;
-//     p2.y = 2;
+//     p2.x = 10000;
+//     p2.y = 88;
 
 //     // alg3_line(p1,p2);
-//     alg3_line(p2,p1);
+//     alg3_line(p1,p2);
 // }
 
