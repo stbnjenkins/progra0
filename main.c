@@ -38,8 +38,8 @@ int main(int argc, char **argv){
     doplot = (int) atoi(argv[4]);
 
     // check times and n_lines are positive integers
-    if(!(n_lines > 0 && times > 0 )){
-        printf("<number_lines> and <times> must be POSITIVE integers\n");
+    if(!(n_lines > 0 && times > 0 && (doplot == 1 || doplot == 0))){
+        printf("<number_lines> and <times> must be POSITIVE integers, and <doplot> must be either 0 or 1\n");
         return -1;
     }
 
