@@ -5,30 +5,17 @@
 #include "point.h"
 #include "helpers.c"
 
-int min(int num1, int num2) {
-
-   /* local variable declaration */
-   int result;
- 
-   if (num1 < num2)
-      result = num1;
-   else
-      result = num2;
- 
-   return result; 
-}
-
 int max(int num1, int num2) {
-
+    return (num1 > num2) ? num1 : num2;
    /* local variable declaration */
-   int result;
+//    int result;
  
-   if (num1 > num2)
-      result = num1;
-   else
-      result = num2;
+//    if (num1 > num2)
+//       result = num1;
+//    else
+//       result = num2;
  
-   return result; 
+//    return result; 
 }
 
 
@@ -41,7 +28,7 @@ void alg3_line (Point p0, Point p1){
     }
 
     long double x,y,step_x,step_y;
-    int i,length;
+    int j,length;
 
     /* If x component in both points is the same,
     then make sure p0 is the one with lower y 
@@ -66,7 +53,9 @@ void alg3_line (Point p0, Point p1){
     y = (long double)p0.y;
     // printf("y_initial: %Lf\n\n", y);
 
-    for(i = 0; i <= length; i++){
+    for(j = 0; j <= length; j++){
+        round(x);
+        round(y);
         //printf("(%d, %d)", (int)round(x), (int)round(y));
         x += step_x;
         y += step_y;

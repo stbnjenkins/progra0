@@ -43,6 +43,7 @@ void line (Point p0, Point p1){
     if(abs(dx) >= abs(dy)){
         for(i = p0.x; i <= p1.x; i++){
             y = (long double) m*i + b;
+            round(y);
             //printf("(%d, %d)", i, (int)round(y));
         }
     }else{
@@ -54,6 +55,7 @@ void line (Point p0, Point p1){
             if(p0.y > p1.y) swapPoints(&p0, &p1);
             for(i = p0.y; i <= p1.y; i++){
                 y = (long double) (i-b)/m;
+                round(y);
                 //printf("(%d, %d)", (int)round(y), i);
             }
         }
